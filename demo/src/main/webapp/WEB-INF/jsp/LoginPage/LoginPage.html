@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizBook360 - Login page</title>
+    <link rel="stylesheet" href="LoginPage.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="logo-section">
+        <div class="logo">B360</div>
+        <h1>BizBook360</h1>
+        <p>Welcome back! Please log in to your account ashen</p>
+    </div>
+
+    <div class="error-message" id="errorMessage">
+        Invalid email or password
+    </div>
+
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-wrapper">
+                <span class="input-icon"></span>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+                <span class="input-icon"></span>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <span class="password-toggle" onclick="togglePassword()"></span>
+            </div>
+        </div>
+
+        <div class="remember-forgot">
+            <label class="remember-me">
+                <input type="checkbox" id="remember">
+                <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-password">Forgot Password? ashen nayanajith </a>
+        </div>
+
+        <button type="submit" class="btn-login">Login submit</button>
+    </form>
+
+    <div class="divider">
+        <span>OR</span>
+    </div>
+
+    <div class="social-login">
+        <button class="social-btn" onclick="googleLogin()">
+            <span></span> Google
+        </button>
+        <button class="social-btn" onclick="microsoftLogin()">
+            <span></span> Microsoft
+        </button>
+    </div>
+
+    <div class="signup-link">
+        Don't have an account? <a href="#">Sign Up</a>
+    </div>
+</div>
+
+<script src="LoginPage.js"></script>
+</body>
+</html>
