@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Generate Form</title>
+</head>
+<body>
+    <h1>Generate Form Page</h1>
+    <form th:action="@{/generativeforms/create}" method="post" th:object="${Generativeform}">
+        <label for="formName">Form Name:</label><br>
+        <input type="text"
+         id="formName" 
+         th:field="*{formname}"
+         name="formName"><br><br>
+
+         
+        <label for="formDescription">Form Description:</label><br>
+        <textarea id="formDescription"
+         name="formDescription" th:field="*{formdescription}"></textarea><br><br>
+         <button type="submit">Generate Form</button>
+
+    </form>
+</body>
+</html>
