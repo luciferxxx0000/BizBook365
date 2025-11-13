@@ -46,6 +46,7 @@ public class GenerativeFormsServiceImpl implements GenerativeFormsService {
             FormItem formItem = new FormItem();
             formItem.setForm(genarativeForms);
             formItem.setItem(item);
+            formItem.setStatus(1); // Set the status as needed
             formItemRepository.save(formItem);
         }
             System.out.println("\u2705Form items successfully saved");

@@ -1,7 +1,5 @@
 package com.example.demo.adn.bbk.client.datalayer.modal;
 
-import java.text.Normalizer.Form;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,19 +17,20 @@ public class FormItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long formItemId;
 
-     @ManyToOne
-    @JoinColumn(name = "form_id")
+    @ManyToOne
+    @JoinColumn(name = "form_id", nullable = false)
     private GenarativeForms form;
 
     @ManyToOne
-    @JoinColumn(name = "item_id")
+    @JoinColumn(name = "item_id", nullable = false)
     private Item item;
 
     private Integer status;
 
     private Double itemPrice;
 
-    @Column(name = "form_item_id", nullable = false)
+    // Getters and Setters
+    @Column(name = "form_item_id")
     public Long getFormItemId() {
         return formItemId;
     }
@@ -39,23 +38,24 @@ public class FormItem {
     public void setFormItemId(Long formItemId) {
         this.formItemId = formItemId;
     }
-    @Column(name = "form_id", nullable = false)
+
+    @Column(name = "form_id")
     public GenarativeForms getForm() {
         return form;
     }
 
-    public void setForm(GenarativeForms genarativeForms) {
-        this.form = genarativeForms;
+    public void setForm(GenarativeForms form) {
+        this.form = form;
     }
 
-    @Column(name = "item_id", nullable = false)
+    @Column(name = "item_id")
     public Item getItem() {
         return item;
     }
 
     public void setItem(Item item) {
         this.item = item;
-    } 
+    }
 
     @Column(name = "status")
     public Integer getStatus() {
@@ -73,10 +73,5 @@ public class FormItem {
 
     public void setItemPrice(Double itemPrice) {
         this.itemPrice = itemPrice;
-    }
-
-    public void save(Item item2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
     }
 }

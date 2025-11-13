@@ -1,7 +1,7 @@
 package com.example.demo.adn.bbk.client.presentationlayer;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 // import org.springframework.beans.factory.annotation.Autowired;
 
@@ -54,7 +54,7 @@ public class GenerativeFormsController {
 
   @GetMapping("/success/{formtemplate}")
   public String createformsuccess(@PathVariable String formtemplate, Model model) {
-        model.addAttribute("link","http://localhost:8080/forms/" + formtemplate);
+        model.addAttribute("link","http://localhost:8080/FormsSubmisson/show/" + formtemplate);
       return "GenerateForm/Form_Success";
   }
   

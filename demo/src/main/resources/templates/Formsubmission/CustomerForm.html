@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Form Submission</title>
+</head>
+<body>
+    <h1>Customer Form Submission Page</h1>
+
+    <form th:action="@{/FormsSubmisson/submit/{formtemplate}(formtemplate=${formtemplate})}" method="post">
+
+        <label for="customerName">Customer Name:</label><br>
+        <input type="text"
+         id="customerName" 
+         name="customerName"><br><br>
+
+         
+        <label for="Mobile No">Customer Email:</label><br>
+        <input type="Text"
+         id="MobileNo"
+         name="MobileNo"><br><br>
+
+
+         <button type="submit">Submit Form</button>
+
+    </form>
+</body>
+</html>
