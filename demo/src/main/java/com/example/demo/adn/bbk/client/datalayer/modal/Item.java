@@ -1,10 +1,14 @@
 package com.example.demo.adn.bbk.client.datalayer.modal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
@@ -22,6 +26,9 @@ public class Item {
     private String itemDescription;
 
     private Integer status;
+
+    @OneToMany(mappedBy = "item")
+    private List<FormItem> formItems = new ArrayList<>();
 
     @Column(name = "item_id", nullable = false)
     public Long getItemId() {
@@ -57,5 +64,13 @@ public class Item {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public List<FormItem> getFormItems() {
+        return formItems;
+    }
+
+    public void setFormItems(List<FormItem> formItems) {
+        this.formItems = formItems;
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.adn.bbk.client.datalayer.modal.GenarativeForms;
 import com.example.demo.adn.bbk.client.datalayer.services.GenerativeFormsService;
@@ -46,8 +47,8 @@ public class GenerativeFormsController {
   }
 
   @PostMapping("/create")
-  public String saveGenerativeForm(@ModelAttribute GenarativeForms genarativeForms, Model model) {
-      generativeFormsService.saveForm(genarativeForms);
+  public String saveGenerativeForm(@ModelAttribute GenarativeForms genarativeForms, Model model,@RequestParam("selectedItems") List<Long> selectedItemIds) {
+      generativeFormsService.saveForm(genarativeForms,selectedItemIds);
       return "redirect:/generativeforms/success/" + genarativeForms.getFormtemplate();
   }
 

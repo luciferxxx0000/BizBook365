@@ -1,10 +1,15 @@
 package com.example.demo.adn.bbk.client.datalayer.modal;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,7 +26,10 @@ public class GenarativeForms {
 
     private String formtemplate;
 
-    @Column(name = "form_Seq", nullable = false)
+    @OneToMany(mappedBy = "form", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FormItem> formItems = new ArrayList<>();
+
+    @Column(name = "form_seq", nullable = false)
     public Long getFormseq() {
         return formseq;
     }
@@ -47,11 +55,21 @@ public class GenarativeForms {
     public void setFormdescription(String formdescription) {
         this.formdescription = formdescription;
     }
+
     @Column(name = "form_template", nullable = false)
     public String getFormtemplate() {
         return formtemplate;
     }
+
     public void setFormtemplate(String formtemplate) {
         this.formtemplate = formtemplate;
+    }
+
+    public List<FormItem> getFormItems() {
+        return formItems;
+    }
+
+    public void setFormItems(List<FormItem> formItems) {
+        this.formItems = formItems;
     }
 }
