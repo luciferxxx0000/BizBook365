@@ -1,5 +1,6 @@
 package com.example.demo.adn.bbk.client.presentationlayer;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 // import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.adn.bbk.client.datalayer.modal.GenarativeForms;
 import com.example.demo.adn.bbk.client.datalayer.services.GenerativeFormsService;
+import com.example.demo.adn.bbk.client.datalayer.services.ItemService;
+import com.example.demo.adn.bbk.client.datalayer.modal.Item;
+import java.util.List;
+
 
 import org.springframework.ui.Model;
 
@@ -23,12 +28,20 @@ import org.springframework.ui.Model;
 @RequestMapping("/generativeforms")
 public class GenerativeFormsController {
 
-    @Autowired
-    private GenerativeFormsService generativeFormsService;
+    private final ItemService itemService;
+    private final GenerativeFormsService generativeFormsService;
+
+     public GenerativeFormsController(ItemService itemService, GenerativeFormsService generativeFormsService) {
+        this.itemService = itemService;
+        this.generativeFormsService = generativeFormsService;
+    }
 
   @GetMapping("/showgere")
   public String showGenerativeReport( Model model) {
+
+    List<Item> items = itemService.getAllItems();
     model.addAttribute("Generativeform", new GenarativeForms());
+    model.addAttribute("items", items);
     return "GenerateForm/Formgenarate";
   }
 

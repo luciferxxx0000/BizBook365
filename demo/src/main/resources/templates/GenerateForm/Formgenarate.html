@@ -16,6 +16,15 @@
         <label for="formDescription">Form Description:</label><br>
         <textarea id="formDescription"
          name="formDescription" th:field="*{formdescription}"></textarea><br><br>
+
+            <label for="Items">Select Items:</label><br>
+            <select id="Items" name="Items" multiple required >
+
+                <option th:each="item : ${items}" 
+                th:value="${item.itemId}" 
+                th:text="${item.itemName}"></option>
+            </select><br><br>
+
          <button type="submit">Generate Form</button>
 
     </form>
