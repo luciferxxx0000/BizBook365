@@ -20,15 +20,36 @@
          name="formDescription" th:field="*{formdescription}"></textarea><br><br>
 
             <label for="Items">Select Items:</label><br>
-            <select id="Items" name="selectedItems" multiple required >
+            <h3>Line Items</h3>
 
-                <option th:each="item : ${items}" 
-                th:value="${item.itemId}" 
-                th:text="${item.itemName}"></option>
-            </select><br><br>
-
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="itemTableBody">
+                <tr>
+                    <td>
+                        <select name="GenerateitemId[]">
+                <th:block th:each="item : ${items}">
+                    <option th:value="${item.itemId}" th:text="${item.itemName}"></option>
+                </th:block>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" name="Prices[]" value="1" min="1">
+                    </td>
+                    <td>
+                        <button type="button" onclick="addRow(this)">+</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table><br>
          <button type="submit">Generate Form</button>
-
     </form>
+    <script  th:src="@{/GenarateformStatics/script.js}"> </script>
 </body>
 </html>

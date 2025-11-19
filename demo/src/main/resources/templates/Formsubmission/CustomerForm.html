@@ -9,19 +9,47 @@
     <form th:action="@{/FormsSubmisson/submit/{formtemplate}(formtemplate=${formtemplate})}" method="post">
 
         <label for="customerName">Customer Name:</label><br>
-        <input type="text"
-         id="customerName" 
-         name="customerName"><br><br>
+        <input type="text" id="customerName" name="customerName"><br><br>
 
-         
-        <label for="Mobile No">Customer Email:</label><br>
-        <input type="Text"
-         id="MobileNo"
-         name="MobileNo"><br><br>
+        <label for="address">Address:</label><br>
+        <input type="text" name="address" id="address"><br><br>
 
+        <label for="MobileNo">Customer MobileNo:</label><br>
+        <input type="text" id="MobileNo" name="MobileNo"><br><br>
 
-         <button type="submit">Submit Form</button>
+        <h3>Line Items</h3>
 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="itemTableBody">
+                <tr>
+                    <td>
+                        <select name="itemId[]">
+                <th:block th:each="item : ${items}">
+                    <option th:value="${item.itemId}" th:text="${item.itemName}"></option>
+                </th:block>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" name="quantity[]" value="1" min="1">
+                    </td>
+                    <td>
+                        <button type="button" onclick="addRow(this)">+</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table><br>
+
+        <button type="submit">Submit Form</button>
     </form>
+
+    
+    <script  th:src="@{/Formsubmissionstatics/script.js}"> </script>
 </body>
 </html>

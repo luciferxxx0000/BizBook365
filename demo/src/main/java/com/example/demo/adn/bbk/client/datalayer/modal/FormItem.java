@@ -30,7 +30,7 @@ public class FormItem {
     private Double itemPrice;
 
     // Getters and Setters
-    @Column(name = "form_item_id")
+    
     public Long getFormItemId() {
         return formItemId;
     }
@@ -39,7 +39,7 @@ public class FormItem {
         this.formItemId = formItemId;
     }
 
-    @Column(name = "form_id")
+    
     public GenarativeForms getForm() {
         return form;
     }
@@ -48,7 +48,7 @@ public class FormItem {
         this.form = form;
     }
 
-    @Column(name = "item_id")
+    
     public Item getItem() {
         return item;
     }
@@ -57,7 +57,7 @@ public class FormItem {
         this.item = item;
     }
 
-    @Column(name = "status")
+    
     public Integer getStatus() {
         return status;
     }
@@ -66,7 +66,7 @@ public class FormItem {
         this.status = status;
     }
 
-    @Column(name = "item_price")
+    
     public Double getItemPrice() {
         return itemPrice;
     }

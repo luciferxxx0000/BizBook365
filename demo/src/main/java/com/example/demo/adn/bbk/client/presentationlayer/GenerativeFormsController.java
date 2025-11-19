@@ -47,8 +47,8 @@ public class GenerativeFormsController {
   }
 
   @PostMapping("/create")
-  public String saveGenerativeForm(@ModelAttribute GenarativeForms genarativeForms, Model model,@RequestParam("selectedItems") List<Long> selectedItemIds) {
-      generativeFormsService.saveForm(genarativeForms,selectedItemIds);
+  public String saveGenerativeForm(@ModelAttribute GenarativeForms genarativeForms, Model model,@RequestParam("GenerateitemId[]") List<Long> selectedItemIds,@RequestParam("Prices[]") List<Double> Prices) {
+      generativeFormsService.saveForm(genarativeForms,selectedItemIds,Prices);
       return "redirect:/generativeforms/success/" + genarativeForms.getFormtemplate();
   }
 

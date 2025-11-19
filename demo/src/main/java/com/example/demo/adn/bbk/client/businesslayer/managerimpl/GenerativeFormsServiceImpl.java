@@ -35,22 +35,28 @@ public class GenerativeFormsServiceImpl implements GenerativeFormsService {
     }
 
     @Override
-    public GenarativeForms saveForm(GenarativeForms genarativeForms, List<Long> selectedItemIds ) {
+    public GenarativeForms saveForm(GenarativeForms genarativeForms, List<Long> selectedItemIds,List<Double> Prices) {
 
         genarativeForms.setFormtemplate(UUID.randomUUID().toString().substring(0,10));
         generativeFormsRepository.save(genarativeForms);
         System.out.println("\u2705 Generativeform successfully saved");
 
+        
         List<Item> selectedItems = itemRepository.findAllById(selectedItemIds);
-        for (Item item : selectedItems) {
+        for (int i = 0; i < selectedItems.size(); i++) {
+
+            Item item = selectedItems.get(i);
+            Double itemPrice = Prices.get(i);
+
             FormItem formItem = new FormItem();
             formItem.setForm(genarativeForms);
+            formItem.setItemPrice(itemPrice);
             formItem.setItem(item);
             formItem.setStatus(1); // Set the status as needed
             formItemRepository.save(formItem);
         }
             System.out.println("\u2705Form items successfully saved");
-            return generativeFormsRepository.findById(genarativeForms.getFormseq()).orElse(null);
+        return generativeFormsRepository.findById(genarativeForms.getFormseq()).orElse(null);
         
     }
 }

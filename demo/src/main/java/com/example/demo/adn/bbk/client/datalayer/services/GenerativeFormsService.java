@@ -6,6 +6,6 @@ import com.example.demo.adn.bbk.client.datalayer.modal.GenarativeForms;
 
 public interface GenerativeFormsService {
     
-    GenarativeForms saveForm(GenarativeForms genarativeForms, List<Long> selectedItemIds);
+    GenarativeForms saveForm(GenarativeForms genarativeForms, List<Long> selectedItemIds,List<Double> Prices);
 
 }

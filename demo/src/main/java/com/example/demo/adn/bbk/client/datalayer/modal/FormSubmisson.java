@@ -1,6 +1,10 @@
 package com.example.demo.adn.bbk.client.datalayer.modal;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
@@ -23,6 +28,7 @@ public class FormSubmisson {
    
     private String customerName;
 
+    private String address;
     
     private Integer mobileNumber;
 
@@ -30,7 +36,12 @@ public class FormSubmisson {
     @JoinColumn(name = "form_id", nullable = false)
     private GenarativeForms genarativeForms;
 
+    @OneToMany(mappedBy = "formSubmisson", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FormSubmissionItem> items = new ArrayList<>();
+
+
     private Integer status;
+
 
 
     // Getters and Setters
@@ -74,5 +85,13 @@ public class FormSubmisson {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+      public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
