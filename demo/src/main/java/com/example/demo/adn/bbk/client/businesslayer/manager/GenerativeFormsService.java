@@ -1,4 +1,4 @@
-package com.example.demo.adn.bbk.client.datalayer.services;
+package com.example.demo.adn.bbk.client.businesslayer.manager;
 
 import com.example.demo.adn.bbk.client.datalayer.modal.GenarativeForms;
 

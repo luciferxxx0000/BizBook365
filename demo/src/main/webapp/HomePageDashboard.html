@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biz Book - Business Management</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="HomePageDashboard.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">📚 Biz Book</div>
+        <nav class="nav-menu">
+            <button class="nav-btn" onclick="navigate('home')">Home</button>
+            <button class="nav-btn" onclick="navigate('customers')">Customers</button>
+            <button class="nav-btn" onclick="navigate('invoices')">Invoices</button>
+            <button class="nav-btn" onclick="navigate('reports')">Reports</button>
+        </nav>
+    </header>
+
+    <div class="welcome-section">
+        <h1>Manage Your Business Easily</h1>
+        <p>With Biz Book, manage your business transactions, customers, and finances. Simple, fast, and efficient.</p>
+        <button class="cta-button" onclick="getStarted()">Get Started →</button>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-card">
+            <div class="stat-number" id="customerCount">0</div>
+            <div class="stat-label">Customers</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="invoiceCount">0</div>
+            <div class="stat-label">Invoices</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="revenue">Rs. 0</div>
+            <div class="stat-label">Total Revenue</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="pending">0</div>
+            <div class="stat-label">Pending</div>
+        </div>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card" onclick="navigate('customers')">
+            <div class="feature-icon">👥</div>
+            <h3>Customer Management</h3>
+            <p>Manage all your customer details in one place.</p>
+        </div>
+
+        <div class="feature-card" onclick="navigate('invoices')">
+            <div class="feature-icon">📄</div>
+            <h3>Create Invoices</h3>
+            <p>Create professional invoices quickly and easily.</p>
+        </div>
+
+        <div class="feature-card" onclick="navigate('payments')">
+            <div class="feature-icon">💰</div>
+            <h3>Payment Tracking</h3>
+            <p>Track payments and pending amounts effortlessly.</p>
+        </div>
+
+        <div class="feature-card" onclick="navigate('reports')">
+            <div class="feature-icon">📊</div>
+            <h3>Reports & Analytics</h3>
+            <p>Get detailed reports on your business performance.</p>
+        </div>
+
+        <div class="feature-card" onclick="navigate('inventory')">
+            <div class="feature-icon">📦</div>
+            <h3>Inventory Management</h3>
+            <p>Manage your products and services efficiently.</p>
+        </div>
+
+        <div class="feature-card" onclick="navigate('settings')">
+            <div class="feature-icon">⚙️</div>
+            <h3>Settings</h3>
+            <p>Customize the system to fit your business needs.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Biz Book. All rights reserved.</p>
+        <p style="margin-top: 10px;">A secure and reliable management system for your business.</p>
+    </footer>
+</div>
+
+<!-- JavaScript File -->
+<script src="HomePageDashboard.js"></script>
+</body>
+</html>

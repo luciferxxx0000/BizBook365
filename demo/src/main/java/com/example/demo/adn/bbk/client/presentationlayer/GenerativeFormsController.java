@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.adn.bbk.client.datalayer.modal.GenarativeForms;
-import com.example.demo.adn.bbk.client.datalayer.services.GenerativeFormsService;
+import com.example.demo.adn.bbk.client.businesslayer.manager.GenerativeFormsService;
 
 import org.springframework.ui.Model;
 
