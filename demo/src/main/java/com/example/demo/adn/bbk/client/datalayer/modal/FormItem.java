@@ -1,6 +1,6 @@
 package com.example.demo.adn.bbk.client.datalayer.modal;
 
-import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
