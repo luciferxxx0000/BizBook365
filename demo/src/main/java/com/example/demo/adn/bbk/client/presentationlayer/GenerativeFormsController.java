@@ -14,11 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.adn.bbk.client.datalayer.modal.GenarativeForms;
+<<<<<<< HEAD
 import com.example.demo.adn.bbk.client.datalayer.services.GenerativeFormsService;
 import com.example.demo.adn.bbk.client.datalayer.services.ItemService;
 import com.example.demo.adn.bbk.client.datalayer.modal.Item;
 import java.util.List;
 
+=======
+import com.example.demo.adn.bbk.client.businesslayer.manager.GenerativeFormsService;
+>>>>>>> 512cc73c8d32c29d906ebb853834b0c74aab43c7
 
 import org.springframework.ui.Model;
 

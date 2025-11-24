@@ -2,6 +2,8 @@ package com.example.demo.adn.bbk.client.businesslayer.managerimpl;
 
 import java.util.List;
 
+import com.example.demo.adn.bbk.client.businesslayer.manager.ItemRepository;
+import com.example.demo.adn.bbk.client.businesslayer.manager.ItemService;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.adn.bbk.client.datalayer.modal.Item;

@@ -3,7 +3,7 @@ package com.example.demo.adn.bbk.client.presentationlayer;
 import org.springframework.stereotype.Controller;
 
 import com.example.demo.adn.bbk.client.datalayer.modal.Item;
-import com.example.demo.adn.bbk.client.datalayer.services.ItemService;
+import com.example.demo.adn.bbk.client.businesslayer.manager.ItemService;
 
 
 import org.springframework.ui.Model;
