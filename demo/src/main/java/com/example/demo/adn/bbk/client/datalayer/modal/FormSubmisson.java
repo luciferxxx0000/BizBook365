@@ -36,9 +36,11 @@ public class FormSubmisson {
     @JoinColumn(name = "form_id", nullable = false)
     private GenarativeForms genarativeForms;
 
+
     @OneToMany(mappedBy = "formSubmisson", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FormSubmissionItem> items = new ArrayList<>();
 
+     private Double Amount;
 
     private Integer status;
 
@@ -93,5 +95,13 @@ public class FormSubmisson {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+        public Double getAmount() {
+        return Amount;
+    }
+
+    public void setAmount(Double Amount) {
+        this.Amount = Amount;
     }
 }

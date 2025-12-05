@@ -1,12 +1,14 @@
 package com.example.demo.adn.bbk.client.businesslayer.managerimpl;
 import com.example.demo.adn.bbk.client.datalayer.services.GenerativeFormsRepository;
-import com.example.demo.adn.bbk.client.datalayer.services.ItemRepository;
+
 
 import java.util.List;
 
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.adn.bbk.client.businesslayer.manager.ItemRepository;
+import com.example.demo.adn.bbk.client.datalayer.modal.FormItem;
 import com.example.demo.adn.bbk.client.datalayer.modal.FormSubmissionItem;
 import com.example.demo.adn.bbk.client.datalayer.modal.FormSubmisson;
 import com.example.demo.adn.bbk.client.datalayer.modal.Item;
@@ -23,34 +25,36 @@ public class FormSubmissionImpl implements FormSubmissonService {
     private final FormSubmissonRepository formSubmissonRepository;
     private final FormSubmissionItemRepository formSubmissionItemRepository;
     private final ItemRepository itemRepository;
+    private final FormItemRepository formItemRepository;
 
      public FormSubmissionImpl(GenerativeFormsRepository generativeFormsRepository,
                                  FormSubmissonRepository formSubmissonRepository,
                                  FormSubmissionItemRepository formSubmissionItemRepository,
-                                  FormItemRepository formItemRepository,ItemRepository itemRepository) {
+             FormItemRepository formItemRepository, ItemRepository itemRepository, FormItem formItem) {
         this.generativeFormsRepository = generativeFormsRepository;
         this.formSubmissonRepository = formSubmissonRepository;
         this.formSubmissionItemRepository = formSubmissionItemRepository;
         this.itemRepository = itemRepository;
+        this.formItemRepository = formItemRepository;
     }
    
     
     @Override
-    public FormSubmisson saveFormSubmission( String formtemplate, String customerName, Integer MobileNo,String address,List<Long> ItemIds,List<Integer> quentities) {
+    public FormSubmisson saveFormSubmission(String formtemplate, String customerName, Integer MobileNo, String address,
+            List<Long> ItemIds, List<Integer> quentities) {
 
         FormSubmisson formSubmisson = new FormSubmisson();
-        
+
         formSubmisson.setCustomerName(customerName);
         formSubmisson.setMobileNumber(MobileNo);
-        formSubmisson . setAddress(address);
+        formSubmisson.setAddress(address);
         formSubmisson.setGenarativeForms(generativeFormsRepository.findByFormtemplate(formtemplate));
         System.out.println("Form Template: " + generativeFormsRepository.findByFormtemplate(formtemplate));
         formSubmisson.setStatus(1);
-        
+
         formSubmissonRepository.save(formSubmisson);
 
-
-        
+        double total = 0;
         List<Item> selectedItems = itemRepository.findAllById(ItemIds);
         for (int i = 0; i < ItemIds.size(); i++) {
 
@@ -62,10 +66,14 @@ public class FormSubmissionImpl implements FormSubmissonService {
             submissionItem.setItem(item);
             submissionItem.setQuantity(quantity);
             submissionItem.setFormSubmisson(formSubmisson);
+            submissionItem.setAmount(quantity);
+            total = total + (formItemRepository.getItemPrice() * quantity);
             formSubmissionItemRepository.save(submissionItem);
         }
+
+        formSubmisson.setAmount(total);
+        formSubmissonRepository.save(formSubmisson);
 
         return formSubmisson;
     }
 }
-

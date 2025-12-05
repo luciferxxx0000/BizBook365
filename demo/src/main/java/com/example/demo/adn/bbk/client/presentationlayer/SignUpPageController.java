@@ -8,12 +8,18 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+import org.springframework.web.bind.annotation.GetMapping;
+
 @WebServlet("/signup")
 public class SignUpPageController extends HttpServlet {
+
+
+
     @Override
+    @GetMapping("/sg")
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/jsp/LoginPage/SignupPage.html")
+        req.getRequestDispatcher("/webapp/SignupPage.html")
                 .forward(req, resp);
     }
 }

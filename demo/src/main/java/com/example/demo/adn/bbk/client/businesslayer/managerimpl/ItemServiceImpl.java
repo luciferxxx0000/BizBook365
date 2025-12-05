@@ -7,8 +7,6 @@ import com.example.demo.adn.bbk.client.businesslayer.manager.ItemService;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.adn.bbk.client.datalayer.modal.Item;
-import com.example.demo.adn.bbk.client.datalayer.services.ItemRepository;
-import com.example.demo.adn.bbk.client.datalayer.services.ItemService;
 
 @Service
 public class ItemServiceImpl implements ItemService {

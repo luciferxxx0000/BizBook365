@@ -29,6 +29,8 @@ public class FormSubmissionItem {
 
     private Integer quantity;
 
+    private Double amount;
+
     @Column(name = "form_submission_item_id")
     public Long getFormSubmissionItemId() {
         return FormSubmissionItemId;
@@ -61,6 +63,15 @@ public class FormSubmissionItem {
     }
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+
+    @Column(name = "amount")
+    public Double getAmount(){
+        return amount;
+    }
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
 

@@ -24,4 +24,7 @@ public interface FormItemRepository extends JpaRepository<FormItem, Long> {
     List<Item> findItemsByFormTemplate(@Param("template") String template);
 
     
+    @Query 
+    List<FormItem> findByFormItemId(Long formItemId);
+
 }
